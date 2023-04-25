@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Entertainers";
+}
+@model List<Entertainer>
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Here is an alterable list of the entertainers</p>
+
+<div class="col-6">
+
+    <div class="card text-dark bg-light m-1 p-1" style="max-width: 70rem;" ">
+        <div class="card-header bg-opacity-75 p-1">
+            @foreach (var e in Model)
+            {
+                <p class="card-body list-group">
+                    Stage Name: @e.EntStageName
+                </p>
+
+                <div class="card-footer">
+                    <span class="badge bg-info" style="float:inline-end">
+                        <a href="@Url.Action("Edit", "Home", new { EntertainerId = e.EntertainerId })">Edit Details or Delete</a>
+                    </span>
+                </div>
+            }
+            <span class="badge bg-info" style="float:inline-end">
+                <a href="@Url.Action("New", "Home")">Create New Entertainer</a>
+            </span>
+        </div>
+    </div>
+   
+</div>
